@@ -1,8 +1,3 @@
-
-
-
-
-
 def generate_diff(a, b):
     diff = ''
     for k in a.keys():
@@ -15,4 +10,5 @@ def generate_diff(a, b):
     added_keys = b.keys() - a.keys()
     for key in added_keys:
         diff += f'  + {key}: {b[key]}\n'
-    print('{\n' + diff + '}')
+    # print('{\n' + diff + '}')
+    return '{\n' + diff + '}'
