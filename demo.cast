@@ -1,0 +1,10 @@
+{"version": 2, "width": 180, "height": 13, "timestamp": 1744781196, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}}
+[0.030163, "o", "\u001b[?2004h\u001b]0;olga877@WIN-A3F406DSRS9: ~/python-project-50\u0007\u001b[01;32molga877@WIN-A3F406DSRS9\u001b[00m:\u001b[01;34m~/python-project-50\u001b[00m$ "]
+[5.897696, "o", "asciinema play demo.cast"]
+[6.381584, "o", "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\u001b[4Pcd python-project-50"]
+[6.983713, "o", "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\basciinema play demo.cast"]
+[7.752994, "o", "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\bgendiff file1.json file2.json"]
+[9.250927, "o", "\r\n\u001b[?2004l\r"]
+[9.300411, "o", "{\r\n  - follow: False\r\n    host: hexlet.io\r\n  - proxy: 123.234.53.22\r\n  - timeout: 50\r\n  + timeout: 20\r\n  + verbose: True\r\n}\r\n"]
+[9.309912, "o", "\u001b[?2004h\u001b]0;olga877@WIN-A3F406DSRS9: ~/python-project-50\u0007\u001b[01;32molga877@WIN-A3F406DSRS9\u001b[00m:\u001b[01;34m~/python-project-50\u001b[00m$ "]
+[11.476362, "o", "\u001b[?2004l\r\r\nexit\r\n"]
