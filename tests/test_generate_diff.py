@@ -1,6 +1,7 @@
 import json
-from gendiff import generate_diff
 from pathlib import Path
+
+from gendiff import generate_diff
 
 
 def get_test_data_path(filename):
@@ -9,7 +10,6 @@ def get_test_data_path(filename):
 
 def read_file(filename):
     return get_test_data_path(filename).read_text()
-
 
 
 def test_generate_diff():
