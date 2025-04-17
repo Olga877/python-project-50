@@ -1,5 +1,7 @@
 import argparse
 import json
+import yaml
+from yaml.loader import SafeLoader
 
 from gendiff import generate_diff
 
@@ -14,14 +16,20 @@ def parse_files():
     parser.add_argument('-f', '--format', help="set format of output")
     args = parser.parse_args()
     args_dict = vars(args)
-    file1 = json.load(open(args_dict.get('first_file')))
-    file2 = json.load(open(args_dict.get('second_file')))
-    sorted_file1 = dict(sorted(file1.items()))
-    sorted_file2 = dict(sorted(file2.items()))
-    # print(sorted_file1, sorted_file2)
-    print(generate_diff(sorted_file1, sorted_file2))
-    return generate_diff(sorted_file1, sorted_file2)
+    if args_dict.get('first_file')[-2 : 0] and args_dict.get('second_file')[-2 : 0] == 'ml':
+        file1 = yaml.load(open(args_dict.get('first_file')), Loader=SafeLoader)
+        file2 = yaml.load(open(args_dict.get('second_file')), Loader=SafeLoader)
+        sorted_file1 = dict(sorted(file1.items()))
+        sorted_file2 = dict(sorted(file2.items()))
+        print(generate_diff(sorted_file1, sorted_file2))
+        return generate_diff(sorted_file1, sorted_file2)
 
-    # dict_list = [{'file1': sorted_file1, 'file2': sorted_file2}]
-    # return dict_list
-    # print(dict_list)
+    # elif args_dict.get('first_file')[-2: 0] and args_dict.get('second_file')[-2: 0] == 'on':
+    else:
+        file1 = json.load(open(args_dict.get('first_file')))
+        file2 = json.load(open(args_dict.get('second_file')))
+
+        sorted_file1 = dict(sorted(file1.items()))
+        sorted_file2 = dict(sorted(file2.items()))
+        print(generate_diff(sorted_file1, sorted_file2))
+        return generate_diff(sorted_file1, sorted_file2)
