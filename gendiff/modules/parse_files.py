@@ -16,7 +16,7 @@ def parse_files():
     parser.add_argument('-f', '--format', help="set format of output")
     args = parser.parse_args()
     args_dict = vars(args)
-    if args_dict.get('first_file')[-2 : 0] and args_dict.get('second_file')[-2 : 0] == 'ml':
+    if args_dict.get('first_file')[-2 :] and args_dict.get('second_file')[-2 :] == 'ml':
         file1 = yaml.load(open(args_dict.get('first_file')), Loader=SafeLoader)
         file2 = yaml.load(open(args_dict.get('second_file')), Loader=SafeLoader)
         sorted_file1 = dict(sorted(file1.items()))
@@ -24,8 +24,8 @@ def parse_files():
         print(generate_diff(sorted_file1, sorted_file2))
         return generate_diff(sorted_file1, sorted_file2)
 
-    # elif args_dict.get('first_file')[-2: 0] and args_dict.get('second_file')[-2: 0] == 'on':
     else:
+
         file1 = json.load(open(args_dict.get('first_file')))
         file2 = json.load(open(args_dict.get('second_file')))
 
