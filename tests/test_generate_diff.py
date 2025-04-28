@@ -1,5 +1,7 @@
 import json
 from pathlib import Path
+import yaml
+from yaml.loader import SafeLoader
 
 from gendiff import generate_diff
 
@@ -22,8 +24,8 @@ def test_generate_diff_json():
     assert actual == expected
 
 def test_generate_diff_yml():
-    file1 = json.load(open("file1.yml"))
-    file2 = json.load(open("file2.yml"))
+    file1 = yaml.load(open("file1.yml"), Loader=SafeLoader)
+    file2 = yaml.load(open("file2.yml"), Loader=SafeLoader)
     sorted_file1 = dict(sorted(file1.items()))
     sorted_file2 = dict(sorted(file2.items()))
     expected = read_file("result.txt")

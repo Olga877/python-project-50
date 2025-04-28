@@ -6,3 +6,5 @@ gendiff .json
 [![asciicast](https://asciinema.org/a/t61I6hZiC3rAt89srtOWKMFGq.svg)](https://asciinema.org/a/t61I6hZiC3rAt89srtOWKMFGq)
 gendiff .yml
 [![asciicast](https://asciinema.org/a/DZri9HeVhAfQBboro91wRRbOj.svg)](https://asciinema.org/a/DZri9HeVhAfQBboro91wRRbOj)
+gendiff with formatter
+[![asciicast](https://asciinema.org/a/kvwIQAClaH6DR3EufxQeO59J3.svg)](https://asciinema.org/a/kvwIQAClaH6DR3EufxQeO59J3)
