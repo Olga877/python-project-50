@@ -4,6 +4,9 @@ install:
 uninstall:
 	uv tool uninstall hexlet-code
 
+reinstall:
+	uv tool install --force dist/*.whl
+
 build:
 	uv build
 

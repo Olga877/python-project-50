@@ -1,13 +1,17 @@
-import gendiff.modules.gendiff as gendiff
-from gendiff.modules.gendiff import generate_diff
-
+import gendiff.formatters.json_formatter as json_formatter
 import gendiff.formatters.stylish_formatter as stylish_formatter
-from gendiff.formatters.stylish_formatter import format_data_stylish
+import gendiff.modules.gendiff as gendiff
+from gendiff.formatters.json_formatter import format_json
+from gendiff.formatters.plain_formatter import format_plain
+from gendiff.formatters.stylish_formatter import format_stylish
+from gendiff.modules.gendiff import generate_diff
 
 __all__ = (
     "gendiff",
     "generate_diff",
     "stylish_formatter",
-    "format_data_stylish"
+    "format_stylish",
+    "format_plain",
+    "format_json"
 
 )

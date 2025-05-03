@@ -1,17 +1,6 @@
-from gendiff.formatters.stylish_formatter import format_data_stylish
-from gendiff.formatters.plain_formatter import format_data_plain
-
-
-
-# def sort_keys_with_symbols(d):
-#     sorted_dict = {}
-#     for key in sorted(d.keys(), key=lambda x: x.lstrip(' +-')):
-#         value = d[key]
-#         if isinstance(value, dict):
-#             sorted_dict[key] = sort_keys_with_symbols(value)
-#         else:
-#             sorted_dict[key] = value
-#     return sorted_dict
+from gendiff.formatters.json_formatter import format_json
+from gendiff.formatters.plain_formatter import format_plain
+from gendiff.formatters.stylish_formatter import format_stylish
 
 
 def generate_diff(d1, d2, formatter='stylish'):
@@ -26,7 +15,8 @@ def generate_diff(d1, d2, formatter='stylish'):
                 elif a[k] == b[k]:
                     diff[k] = a[k]
                 else:
-                    diff[k] = {'type': 'updated', "old_value": a[k], "new_value": b[k]}
+                    diff[k] = {'type': 'updated', "old_value": a[k],
+                               "new_value": b[k]}
             else:
                 diff[k] = {"type": "removed", "value": a[k]}
         for k in b.keys():
@@ -35,9 +25,11 @@ def generate_diff(d1, d2, formatter='stylish'):
         return diff
 
     if formatter == 'stylish':
-        return format_data_stylish(compare(d1, d2), " ", 4)
+        return format_stylish(compare(d1, d2), " ", 4)
     elif formatter == 'plain':
-        return format_data_plain(compare(d1, d2))
+        return format_plain(compare(d1, d2))
+    elif formatter == 'json':
+        return format_json(compare(d1, d2))
     else:
         raise ValueError("Unsupported format")
     

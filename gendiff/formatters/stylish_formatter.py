@@ -1,7 +1,7 @@
 import itertools
 
 
-def format_data_stylish(value, replacer=' ', spaces_count=1):
+def format_stylish(value, replacer=' ', spaces_count=1):
 
     def iter_(current_value, depth):
         if not isinstance(current_value, dict):
@@ -16,22 +16,31 @@ def format_data_stylish(value, replacer=' ', spaces_count=1):
         for key, val in sorted(current_value.items()):
             if isinstance(val, dict):
                 if val.get('type') == 'removed':
-                    lines.append(f'{deep_indent_with_symbol}- {key}: {iter_(val.get("value"), deep_indent_size)}')
+                    lines.append(f'{deep_indent_with_symbol}- {key}: '
+                                 f'{iter_(val.get("value"), 
+                                          deep_indent_size)}')
                 elif val.get('type') == 'updated':
-                    lines.append(f'{deep_indent_with_symbol}- {key}: {iter_(val.get("old_value"), deep_indent_size)}')
-                    lines.append(f'{deep_indent_with_symbol}+ {key}: {iter_(val.get("new_value"), deep_indent_size)}')
+                    lines.append(f'{deep_indent_with_symbol}- {key}: '
+                                 f'{iter_(val.get("old_value"), 
+                                          deep_indent_size)}')
+                    lines.append(f'{deep_indent_with_symbol}+ {key}: '
+                                 f'{iter_(val.get("new_value"), 
+                                          deep_indent_size)}')
                 elif val.get('type') == 'added':
-                    lines.append(f"{deep_indent_with_symbol}+ {key}: {iter_(val.get('value'), deep_indent_size)}")
+                    lines.append(f"{deep_indent_with_symbol}+ {key}: "
+                                 f"{iter_(val.get('value'), 
+                                          deep_indent_size)}")
                 else:
-                    lines.append(f'{deep_indent}{key}: {iter_(val, deep_indent_size)}')
+                    lines.append(f'{deep_indent}{key}: '
+                                 f'{iter_(val, deep_indent_size)}')
             else:
-                lines.append(f'{deep_indent}{key}: {iter_(val, deep_indent_size)}')
+                lines.append(f'{deep_indent}{key}: '
+                             f'{iter_(val, deep_indent_size)}')
         final = itertools.chain("{", lines, [current_indent + "}"])
         result = '\n'.join(final)
         return format_text(result)
 
     return iter_(value, 0)
-
 
 
 def format_text(text):

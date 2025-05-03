@@ -1,0 +1,7 @@
+.venv/
+.python-version
+.coverage
+dist/
+.ruff_cache
+
+
