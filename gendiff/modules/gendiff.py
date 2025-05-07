@@ -30,17 +30,17 @@ def compare(a, b):
                 nested_diff = compare(a[k], b[k])
                 if nested_diff:
                     diff[k] = nested_diff
-                elif a[k] == b[k]:
-                    diff[k] = a[k]
-                else:
-                    diff[k] = {'type': 'updated', "old_value": a[k],
-                               "new_value": b[k]}
+            elif a[k] == b[k]:
+                diff[k] = a[k]
             else:
-                diff[k] = {"type": "removed", "value": a[k]}
-        for k in b.keys():
-            if k not in a:
-                diff[k] = {"type": "added", "value": b[k]}
-        return diff
+                diff[k] = {'type': 'updated', "old_value": a[k],
+                               "new_value": b[k]}
+        else:
+            diff[k] = {"type": "removed", "value": a[k]}
+    for k in b.keys():
+        if k not in a:
+            diff[k] = {"type": "added", "value": b[k]}
+    return diff
 
 
 def generate_diff(file_path1, file_path2, formatter='stylish'):
