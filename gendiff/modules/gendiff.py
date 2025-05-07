@@ -22,17 +22,14 @@ def get_sorted_files(file_path1, file_path2):
     return sorted_file1, sorted_file2
 
 
-def generate_diff(file_path1, file_path2, formatter='stylish'):
-    file_path1, file_path2 = get_sorted_files(file_path1, file_path2)
-
-    def compare(a, b):
-        diff = {}
-        for k in a.keys():
-            if k in b:
-                if isinstance(a[k], dict) and isinstance(b[k], dict):
-                    nested_diff = compare(a[k], b[k])
-                    if nested_diff:
-                        diff[k] = nested_diff
+def compare(a, b):
+    diff = {}
+    for k in a.keys():
+        if k in b:
+            if isinstance(a[k], dict) and isinstance(b[k], dict):
+                nested_diff = compare(a[k], b[k])
+                if nested_diff:
+                    diff[k] = nested_diff
                 elif a[k] == b[k]:
                     diff[k] = a[k]
                 else:
@@ -45,6 +42,9 @@ def generate_diff(file_path1, file_path2, formatter='stylish'):
                 diff[k] = {"type": "added", "value": b[k]}
         return diff
 
+
+def generate_diff(file_path1, file_path2, formatter='stylish'):
+    file_path1, file_path2 = get_sorted_files(file_path1, file_path2)
     if formatter == 'stylish':
         return format_stylish(compare(file_path1, file_path2), " ", 4)
     elif formatter == 'plain':

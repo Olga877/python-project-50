@@ -1,14 +1,15 @@
-def format_plain(diff):
-    def format_value(value):
-        if isinstance(value, dict):
-            return "[complex value]"
-        elif isinstance(value, str):
-            return f"'{value}'"
-        elif value is None:
-            return "null"
-        else:
-            return str(value).lower()
+def format_value(value):
+    if isinstance(value, dict):
+        return "[complex value]"
+    elif isinstance(value, str):
+        return f"'{value}'"
+    elif value is None:
+        return "null"
+    else:
+        return str(value).lower()
 
+
+def format_plain(diff):
     lines = []
 
     def iter_(node, parent=''):
@@ -28,6 +29,5 @@ def format_plain(diff):
                                  f"{format_value(val['value'])}")
                 else:
                     iter_(val, property_path)
-
     iter_(diff)
     return '\n'.join(lines)
