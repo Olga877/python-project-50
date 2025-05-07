@@ -1,8 +1,4 @@
-import json
 from pathlib import Path
-
-import yaml
-from yaml.loader import SafeLoader
 
 from gendiff import generate_diff
 
@@ -16,60 +12,36 @@ def read_file(filename):
 
 
 def test_generate_diff_json():
-    file1 = json.load(open("file1.json"))
-    file2 = json.load(open("file2.json"))
-    sorted_file1 = dict(sorted(file1.items()))
-    sorted_file2 = dict(sorted(file2.items()))
     expected = read_file("result.txt")
-    actual = generate_diff(sorted_file1, sorted_file2)
+    actual = generate_diff("file1.json", "file2.json")
     assert actual == expected
 
 
 def test_generate_diff_yml():
-    file1 = yaml.load(open("file1.yml"), Loader=SafeLoader)
-    file2 = yaml.load(open("file2.yml"), Loader=SafeLoader)
-    sorted_file1 = dict(sorted(file1.items()))
-    sorted_file2 = dict(sorted(file2.items()))
     expected = read_file("result.txt")
-    actual = generate_diff(sorted_file1, sorted_file2)
+    actual = generate_diff("file1.yml", "file2.yml")
     assert actual == expected
 
 
 def test_generate_diff_json_plain():
-    file1 = json.load(open("file1.json"))
-    file2 = json.load(open("file2.json"))
-    sorted_file1 = dict(sorted(file1.items()))
-    sorted_file2 = dict(sorted(file2.items()))
     expected = read_file("result_plain.txt")
-    actual = generate_diff(sorted_file1, sorted_file2, 'plain')
+    actual = generate_diff("file1.json", "file2.json", 'plain')
     assert actual == expected
 
 
 def test_generate_diff_yml_plain():
-    file1 = yaml.load(open("file1.yml"), Loader=SafeLoader)
-    file2 = yaml.load(open("file2.yml"), Loader=SafeLoader)
-    sorted_file1 = dict(sorted(file1.items()))
-    sorted_file2 = dict(sorted(file2.items()))
     expected = read_file("result_plain.txt")
-    actual = generate_diff(sorted_file1, sorted_file2, 'plain')
+    actual = generate_diff("file1.yml", "file2.yml", 'plain')
     assert actual == expected
 
 
 def test_generate_diff_json_json():
-    file1 = json.load(open("file1.json"))
-    file2 = json.load(open("file2.json"))
-    sorted_file1 = dict(sorted(file1.items()))
-    sorted_file2 = dict(sorted(file2.items()))
     expected = read_file("result_json.json")
-    actual = generate_diff(sorted_file1, sorted_file2, 'json')
+    actual = generate_diff("file1.json", "file2.json", 'json')
     assert actual == expected
 
 
 def test_generate_diff_yml_json():
-    file1 = yaml.load(open("file1.yml"), Loader=SafeLoader)
-    file2 = yaml.load(open("file2.yml"), Loader=SafeLoader)
-    sorted_file1 = dict(sorted(file1.items()))
-    sorted_file2 = dict(sorted(file2.items()))
     expected = read_file("result_json.json")
-    actual = generate_diff(sorted_file1, sorted_file2, 'json')
+    actual = generate_diff("file1.yml", "file2.yml", 'json')
     assert actual == expected
