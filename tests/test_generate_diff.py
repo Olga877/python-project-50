@@ -13,35 +13,35 @@ def read_file(filename):
 
 def test_generate_diff_json():
     expected = read_file("result.txt")
-    actual = generate_diff("tests/test_data/file1.json", "tests/test_data/file2.json")
+    actual = generate_diff("file1.json", "file2.json")
     assert actual == expected
 
 
 def test_generate_diff_yml():
     expected = read_file("result.txt")
-    actual = generate_diff("tests/test_data/file1.yml", "tests/test_data/file2.yml")
+    actual = generate_diff("file1.yml", "file2.yml")
     assert actual == expected
 
 
 def test_generate_diff_json_plain():
     expected = read_file("result_plain.txt")
-    actual = generate_diff("tests/test_data/file1.json", "tests/test_data/file2.json", 'plain')
+    actual = generate_diff("file1.json", "file2.json", 'plain')
     assert actual == expected
 
 
 def test_generate_diff_yml_plain():
     expected = read_file("result_plain.txt")
-    actual = generate_diff("tests/test_data/file1.yml", "tests/test_data/file2.yml", 'plain')
+    actual = generate_diff("file1.yml", "file2.yml", 'plain')
     assert actual == expected
 
 
 def test_generate_diff_json_json():
     expected = read_file("result_json.json")
-    actual = generate_diff("tests/test_data/file1.json", "tests/test_data/file2.json", 'json')
+    actual = generate_diff("file1.json", "file2.json", 'json')
     assert actual == expected
 
 
 def test_generate_diff_yml_json():
     expected = read_file("result_json.json")
-    actual = generate_diff("tests/test_data/file1.yml", "tests/test_data/file2.yml", 'json')
+    actual = generate_diff("file1.yml", "file2.yml", 'json')
     assert actual == expected
