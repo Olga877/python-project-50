@@ -27,9 +27,7 @@ def compare(a, b):
     for k in a.keys():
         if k in b:
             if isinstance(a[k], dict) and isinstance(b[k], dict):
-                nested_diff = compare(a[k], b[k])
-                if nested_diff:
-                    diff[k] = nested_diff
+                diff[k] = compare(a[k], b[k])
             elif a[k] == b[k]:
                 diff[k] = a[k]
             else:
