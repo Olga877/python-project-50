@@ -1,8 +1,6 @@
 from pathlib import Path
-import sys
-sys.path.append("/gendiff/modules")
 
-from gendiff.modules.gendiff import generate_diff
+from gendiff import generate_diff
 
 
 def get_test_data_path(filename):
