@@ -17,3 +17,8 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=Olga877_python-project-50
+            -Dsonar.organization=olga877
+            -Dsonar.python.coverage.reportPaths=coverage.xml
