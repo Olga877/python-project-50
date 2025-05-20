@@ -5,7 +5,7 @@
 
 ### Description
 
-*Difference Generator* is a program that determines the difference between two data structures. This is a popular task, for which there are many online services, for example, jsondiff. A similar mechanism is used, for example, when outputting tests or when automatically tracking changes in configuration files.  
+**Difference Generator** is a program that determines the difference between two data structures. This is a popular task, for which there are many online services, for example, *jsondiff*. A similar mechanism is used, for example, when outputting tests or when automatically tracking changes in configuration files.  
 
 ### Utility Capabilities:
 - Different input formats support: yaml, json
@@ -33,7 +33,7 @@ gendiff json formatter
 | Tool                                                                   | Description                                                |
 |------------------------------------------------------------------------|---------------------------------------------------------|
 | [uv](https://docs.astral.sh/uv/)                                       | "An extremely fast Python package and project manager, written in Rust" |
-| [ruff](https://docs.astral.sh/ruff/)  (version 0.8.6)                  | "An extremely fast Python linter and code formatter, written in Rust"|
+| [ruff](https://docs.astral.sh/ruff/)  (version 0.11.5)                  | "An extremely fast Python linter and code formatter, written in Rust"|
 | [Pytest](https://pytest.org)                                           | "A mature full-featured Python testing tool"  
 ### Setup
 
@@ -41,12 +41,19 @@ gendiff json formatter
 make install
 ```
 ### Run
+```bash
 gendiff filepath1.json filepath2.json
+
 gendiff filepath1.yml filepath2.yml
+
 gendiff --format plain filepath1.json filepath2.json
+
 gendiff --format plain filepath1.yml filepath2.yml
+
 gendiff --format json filepath1.json filepath2.json
+
 gendiff --format json filepath1.yml filepath2.yml
+```
 
 ### Uninstall
 
