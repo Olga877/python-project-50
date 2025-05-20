@@ -20,13 +20,36 @@ Setting "group1.baz" was updated. From 'bas' to 'bars'
 Section "group2" was removed
 ```
 
-gendiff .json
-[![asciicast](https://asciinema.org/a/t61I6hZiC3rAt89srtOWKMFGq.svg)](https://asciinema.org/a/t61I6hZiC3rAt89srtOWKMFGq)
-gendiff .yml
-[![asciicast](https://asciinema.org/a/DZri9HeVhAfQBboro91wRRbOj.svg)](https://asciinema.org/a/DZri9HeVhAfQBboro91wRRbOj)
 gendiff stylish formatter
 [![asciicast](https://asciinema.org/a/kvwIQAClaH6DR3EufxQeO59J3.svg)](https://asciinema.org/a/kvwIQAClaH6DR3EufxQeO59J3)
 gendiff plain formatter
 [![asciicast](https://asciinema.org/a/GunzYEOFEmh0uq7rVVWPoja4m.svg)](https://asciinema.org/a/GunzYEOFEmh0uq7rVVWPoja4m)
 gendiff json formatter
 [![asciicast](https://asciinema.org/a/o7DBEqyp3H5llYqWTANNJrcD6.svg)](https://asciinema.org/a/o7DBEqyp3H5llYqWTANNJrcD6)
+
+
+### Tools
+
+| Tool                                                                   | Description                                                |
+|------------------------------------------------------------------------|---------------------------------------------------------|
+| [uv](https://docs.astral.sh/uv/)                                       | "An extremely fast Python package and project manager, written in Rust" |
+| [ruff](https://docs.astral.sh/ruff/)  (version 0.8.6)                  | "An extremely fast Python linter and code formatter, written in Rust"|
+| [Pytest](https://pytest.org)                                           | "A mature full-featured Python testing tool"  
+### Setup
+
+```bash
+make install
+```
+### Run
+gendiff filepath1.json filepath2.json
+gendiff filepath1.yml filepath2.yml
+gendiff --format plain filepath1.json filepath2.json
+gendiff --format plain filepath1.yml filepath2.yml
+gendiff --format json filepath1.json filepath2.json
+gendiff --format json filepath1.yml filepath2.yml
+
+### Uninstall
+
+```bash
+make uninstall
+```
