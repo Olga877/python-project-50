@@ -7,6 +7,10 @@ uninstall:
 reinstall:
 	uv tool install --force dist/*.whl
 
+test-coverage:
+	uv run pytest --cov=gendiff --cov-report=xml:coverage.xml
+
+
 build:
 	uv build
 
