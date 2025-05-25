@@ -1,6 +1,6 @@
 .venv/
 .python-version
-.coverage
+../.coverage
 dist/
 .ruff_cache
 python-project-50/__init__.py
